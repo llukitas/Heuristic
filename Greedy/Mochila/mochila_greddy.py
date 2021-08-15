@@ -79,16 +79,18 @@ def geedy_mochila_dens(val, pes,capacidad,Knapsack_bag):
 
 a,b,MAX_greedy,d = geedy_mochila_valor(valor,peso,W_capacidad,Knapsack_bag = 0)
 
+print("\nMochila en base a valor:")
+print("Peso Total de la Mochila: ",a,' Pesos individuales:',b)
+print("Valor total de mochila es: ",MAX_greedy,' valores individuales:',d)
 
-print("Peso Total de la Mochila, ",a,' Pesos individuales:',b)
-print("Valor total de mochila es, ",MAX_greedy,' valores individuales:',d)
+
 
 
 a,b,MAX_greedy,d = geedy_mochila_dens(valor,peso,W_capacidad,Knapsack_bag = 0)
+print("\nMochila en base a densidad:")
 
-
-print("Peso Total de la Mochila, ",a,' Pesos individuales:',b)
-print("Valor total de mochila es, ",MAX_greedy,' valores individuales:',d)
+print("Peso Total de la Mochila: ",a,' Pesos individuales:',b)
+print("Valor total de mochila es: ",MAX_greedy,' valores individuales:',d)
 
 
 
