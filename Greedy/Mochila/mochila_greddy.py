@@ -13,10 +13,38 @@ peso = np.array([10,  20,  30, 15,  5, 25,  55, 15, 10 ,5])
                  
 W_capacidad = 60
 
+def geedy_mochila_valor(val, pes,capacidad,Knapsack_bag):
+
+    def ratio(val):   
+        
+        score = []
+        for i in range(len(val)):
+            score = np.append(score,(val[i]))   
+        return score
+        
+    scores_ratio = ratio(val)
+    indicies = np.argsort(-scores_ratio)
+    Knapsack_index = np.zeros(len(val))
+    Knapsack_bag
+    
+    
+    
+    for i in range(len(val)):
+        items = indicies[i]
+        if((Knapsack_bag+peso[items]) <= capacidad):
+            Knapsack_index[items] = 1
+            Knapsack_bag += pes[items]
 
 
+    Total_pesos = np.sum(pes[Knapsack_index==True])        
+    Invididual_pesos =  pes[Knapsack_index==True]
+    Total_valor = np.sum(val[Knapsack_index==True])
+    Individual_valor =  val[Knapsack_index==True]
+    #Indices_profit = items[Knapsack_index==True]
+    return(Total_pesos,Invididual_pesos,Total_valor,Individual_valor)
 
-def geedy_mochila(val, pes,capacidad,Knapsack_bag):
+
+def geedy_mochila_dens(val, pes,capacidad,Knapsack_bag):
 
     def ratio(val,pes):   
         #2. Use of a score or efficiency function, i.e. the profit to weight ratiodef ratio(valor,peso)
@@ -49,17 +77,18 @@ def geedy_mochila(val, pes,capacidad,Knapsack_bag):
     #Indices_profit = items[Knapsack_index==True]
     return(Total_pesos,Invididual_pesos,Total_valor,Individual_valor)
 
-
-
-a,b,MAX_greedy,d = geedy_mochila(valor,peso,W_capacidad,Knapsack_bag = 0)
+a,b,MAX_greedy,d = geedy_mochila_valor(valor,peso,W_capacidad,Knapsack_bag = 0)
 
 
 print("Peso Total de la Mochila, ",a,' Pesos individuales:',b)
 print("Valor total de mochila es, ",MAX_greedy,' valores individuales:',d)
 
-#print("SCORE",scores_ratio)
-##print(Knapsack_index)
-#print("PESO TOTAL",Total_weight)
-#print("Invididual_weight",Invididual_weight)
+
+a,b,MAX_greedy,d = geedy_mochila_dens(valor,peso,W_capacidad,Knapsack_bag = 0)
+
+
+print("Peso Total de la Mochila, ",a,' Pesos individuales:',b)
+print("Valor total de mochila es, ",MAX_greedy,' valores individuales:',d)
+
 
 
